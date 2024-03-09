@@ -1,0 +1,262 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>Banglore Home Price Prediction</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="app.js"></script>
+	<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<div class="img"></div>
+<form class="form">
+	<h2>Area (Square Feet)</h2>
+    <input class="area"  type="text" id="uiSqft" class="floatLabel" name="Squareft" value="1000">
+	<h2>BHK</h2>
+	<div class="switch-field">
+		<input type="radio" id="radio-bhk-1" name="uiBHK" value="1"/>
+		<label for="radio-bhk-1">1</label>
+		<input type="radio" id="radio-bhk-2" name="uiBHK" value="2" />
+		<label for="radio-bhk-2">2</label>
+		<input type="radio" id="radio-bhk-3" name="uiBHK" value="3"/>
+		<label for="radio-bhk-3">3</label>
+		<input type="radio" id="radio-bhk-4" name="uiBHK" value="4"/>
+		<label for="radio-bhk-4">4</label>
+		<input type="radio" id="radio-bhk-5" name="uiBHK" value="5"/>
+		<label for="radio-bhk-5">5</label>
+	</div>
+	</form>
+<form class="form">
+	<h2>Bath</h2>
+	<div class="switch-field">
+		<input type="radio" id="radio-bath-1" name="uiBathrooms" value="1"/>
+		<label for="radio-bath-1">1</label>
+		<input type="radio" id="radio-bath-2" name="uiBathrooms" value="2" checked/>
+		<label for="radio-bath-2">2</label>
+		<input type="radio" id="radio-bath-3" name="uiBathrooms" value="3"/>
+		<label for="radio-bath-3">3</label>
+		<input type="radio" id="radio-bath-4" name="uiBathrooms" value="4"/>
+		<label for="radio-bath-4">4</label>
+		<input type="radio" id="radio-bath-5" name="uiBathrooms" value="5"/>
+		<label for="radio-bath-5">5</label>
+	</div>
+		<h2>Location</h2>
+	<div>
+  <select class="location" name="" id="uiLocations">
+    <option value="" disabled="disabled" selected="selected">Choose a Location</option>
+		<option>Electronic City</option>
+        <option>Rajaji Nagar</option>
+  </select>
+</div>
+	<button class="submit" onclick="onClickedEstimatePrice()" type="button">Find Estimated Price</button>
+	<div id="uiEstimatedPrice" class="result">	<h2></h2> </div>
+</body>
+</html> -->
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bangalore Home Price Prediction</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="app.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+	<link rel="stylesheet" href="app.css">
+    <link rel="stylesheet" href="styles.css">
+	<style> 
+
+
+.img {
+            /* Set background image */
+            
+			
+			
+			background-image: url('Re2.jpg');
+            /* Adjust background image properties */
+            background-size: cover; /* Cover the entire viewport */
+            background-position: center; /* Center the background image */
+			height: 100%;
+			margin: 0;
+            padding: 0;
+			filter: blur(5px);
+            background-repeat: no-repeat; /* Do not repeat the background image */
+            /* Optionally, set a fallback background color */
+            background-color: #f8f9fa; /* Light gray as a fallback color */
+        }
+
+	/* Style for the container */
+.switch-field {
+    display: flex;
+    /* justify-content: space-between; */
+}
+
+/* Style for individual radio buttons */
+.switch-field input[type="radio"] {
+    display: none; /* Hide the actual radio buttons */
+}
+
+/* Style for labels (representing radio buttons) */
+.switch-field label {
+    display: inline-block;
+    width: 40px; /* Adjust the width according to your preference */
+    height: 40px; /* Adjust the height according to your preference */
+    background-color: #f0f0f0; /* Default background color */
+    color: #333; /* Default text color */
+    text-align: center;
+    line-height: 15px;
+    cursor: pointer;
+    border: 1px solid #ccc; /* Border for inactive state */
+    border-radius: 3px; /* Rounded corners */
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s; /* Smooth transition */
+}
+
+/* Style for checked (selected) radio buttons */
+.switch-field input[type="radio"]:checked + label {
+    background-color: #514f4f; /* Change background color for checked state */
+    color: #fff; /* Change text color for checked state */
+    border-color: #090909; /* Change border color for checked state */
+}
+.col-md-6 {
+    width: 50%; /* Set the width of the column */
+    float: left; /* Float the column to the left */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+.result-container {
+    border: 1px solid #514f4f; /* Add a border */
+    padding: 20px; /* Add padding */
+    border-radius: 10px; /* Add border radius */
+    background-color: #090909 ;
+	margin-top: 20px;
+	color: #fff; /* Add background color */
+}
+.jumbotron {
+	margin-top:50px;
+	border: 1px solid #514f4f; /* Add a border */
+    padding: 40px; /* Add padding */
+    border-radius: 10px; /* Add border radius */
+    background-color: #090909 ;
+	color: #fff; /* Add background color */
+
+}
+.prediction-form{
+	border: 1px solid #514f4f; /* Add a border */
+    padding: 40px; /* Add padding */
+    border-radius: 10px; /* Add border radius */
+    background-color: #090909 ;
+	font-size: 15px;
+	font-style:normal;
+	margin-top: 20px;
+	color: #fff; /* Add background color */
+}
+
+.result {
+    font-size: 100px; /* Result text font size */
+    color: #0e0f0f; /* Result text color */
+	text-align: left;
+}
+
+
+</style>
+</head>
+<body>
+	<div class="img"></div>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" style="background-color:#090909 ; color: #fff;">
+        <a class="navbar-brand" href="#" style="color: #fff;" >  Bangalore Housing <i class="fas fa-home"></i></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#" >Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" >About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" >Contact</a>
+            </li>
+			<li class="nav-item">
+				<a class="nav-link" href="#" >Sign In</a>
+			  </li>
+          </ul>
+        </div>
+      </nav>
+
+	  
+    <div class="container">
+        <div class="jumbotron text-center">
+            <h1 class="display-4">Welcome to Bangalore Housing !</h1>
+            <p class="lead">Get an estimate of your home's price in Bangalore</p>
+        </div>
+
+		
+		
+	
+        <div class="row">
+            <div class="col-md-6">
+                <form class="prediction-form">
+                    <h2 style="font-size:x-large;" ><i>Enter Property Details</i></h2>
+                    <div class="form-group">
+                        <label for="uiSqft">Area (Square Feet)</label>
+                        <input class="form-control" type="number" id="uiSqft" name="Squareft" value="1000">
+                    </div>
+                    <div class="form-group">
+						<label>BHK (Bedrooms)</label><br>
+						<div class="switch-field">
+							<input type="radio" id="radio-bhk-1" name="uiBHK" value="1"/>
+							<label for="radio-bhk-1">1</label>
+							<input type="radio" id="radio-bhk-2" name="uiBHK" value="2" />
+							<label for="radio-bhk-2">2</label>
+							<input type="radio" id="radio-bhk-3" name="uiBHK" value="3"/>
+							<label for="radio-bhk-3">3</label>
+							<input type="radio" id="radio-bhk-4" name="uiBHK" value="4"/>
+							<label for="radio-bhk-4">4</label>
+							<input type="radio" id="radio-bhk-5" name="uiBHK" value="5"/>
+							<label for="radio-bhk-5">5</label>
+						</div>
+					</div>
+					
+                    <div class="form-group">
+                        <label>Bathrooms</label><br>
+                        <div class="switch-field">
+							<input type="radio" id="radio-bath-1" name="uiBathrooms" value="1"/>
+							<label for="radio-bath-1">1</label>
+							<input type="radio" id="radio-bath-2" name="uiBathrooms" value="2" />
+							<label for="radio-bath-2">2</label>
+							<input type="radio" id="radio-bath-3" name="uiBathrooms" value="3"/>
+							<label for="radio-bath-3">3</label>
+							<input type="radio" id="radio-bath-4" name="uiBathrooms" value="4"/>
+							<label for="radio-bath-4">4</label>
+							<input type="radio" id="radio-bath-5" name="uiBathrooms" value="5"/>
+							<label for="radio-bath-5">5</label>
+						</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="uiLocations">Location</label>
+                        <select class="form-control" name="" id="uiLocations">
+                            <option value="" disabled="disabled" selected="selected">Choose a Location</option>
+                            <option>Electronic City</option>
+                            <option>Rajaji Nagar</option>
+                        </select>
+                    </div>
+                    <button  style="background-color: #514f4f; border: #090909;"  class="btn btn-primary" onclick="onClickedEstimatePrice()" type="button" >Find Estimated Price</button>
+                </form>
+            </div>
+            <div class="col-md-6">
+                <div class="result-container">
+                    <h2>Estimated Price</h2>
+					
+                    <div  class="result" id="uiEstimatedPrice"> </div>
+				
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+</body>
+</html> 
