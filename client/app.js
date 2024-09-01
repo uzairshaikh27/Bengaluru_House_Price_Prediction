@@ -65,4 +65,4 @@ function getBathValue() {
 
   
   window.onload = onPageLoad;
-      //var url = "/api/get_location_names"; // Use this if you are using nginx. i.e tutorial 8 and onwards
+     
