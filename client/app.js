@@ -60,40 +60,7 @@ function getBathValue() {
   }
 
 
-//   function onPageLoad() {
-//     console.log("document loaded");
-//     var url = "http://127.0.0.1:5000/get_location_names"; // Use this if you are NOT using nginx which is first 7 tutorials
-//     $.get(url, function(data, status) {
-//         console.log("got response for get_location_names request");
-//         if (data && data.locations) {
-//             var locations = data.locations;
-//             var uiLocations = document.getElementById("uiLocations");
-//             $('#uiLocations').empty();
-//             locations.forEach(function(location) {
-//                 var opt = new Option(location);
-//                 uiLocations.appendChild(opt);
-//             });
-//         }
-//     })
-//     .fail(function(xhr, status, error) {
-//       console.error('Error fetching location names:', error);
-//   });
-// }
-// function onPageLoad() {
-//   console.log("document loaded");
-//   var url = "http://127.0.0.1:5000/get_location_names"; // Use this if you are NOT using nginx which is first 7 tutorials
-//   $.get(url, function(data, status) {
-//       console.log("got response for get_location_names request");
-//       if (data && data.locations) {
-//           var locations = data.locations;
-//           var uiLocations = document.getElementById("locationSelect");
-//           locations.forEach(function(location) {
-//               var option = new Option(location);
-//               uiLocations.appendChild(option);
-//           });
-//       }
-//   });
-// } 
+
 
 
   
